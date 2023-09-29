@@ -1,11 +1,22 @@
 {
-  "name": "make-library-practice",
+  "name": "tax-lib",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/tax-lib.umd.cjs",
+  "module": "./dist/tax-lib.js",
+  "exports": {
+    ".": {
+      "import": "./dist/tax-lib.js",
+      "require": "./dist/tax-lib.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build && tsc",
     "preview": "vite preview",
     "test": "vitest",
     "typedoc": "typedoc"
