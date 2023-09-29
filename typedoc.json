@@ -1,0 +1,6 @@
+{
+  "entryPoints": ["./src/modules"],
+  "out": "docs/typedoc",
+  "tsconfig": "tsconfig.json",
+  "entryPointStrategy": "expand"
+}
