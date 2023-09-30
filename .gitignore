@@ -24,4 +24,6 @@ dist-ssr
 *.sw?
 
 # docs
-/docs
+# 理想としては「/docs」だけにしたい「/docs/index.html」もビルドで自動生成できるようにしたら修正
+/docs/example
+/docs/typedoc

@@ -17,6 +17,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && tsc",
+    "build-docs:example": "vite build --config vite-doc-example.config.ts && tsc",
     "build-docs:typedoc": "typedoc",
     "preview": "vite preview",
     "test": "vitest",
@@ -27,7 +28,7 @@
     "fix:eslint": "eslint --fix --ext .js,.ts",
     "fix:prettier": "prettier --write './src/**/*.{js,ts}'",
     "gh-pages": "gh-pages -d docs",
-    "deploy-docs": "run-s build-docs:typedoc gh-pages"
+    "deploy-docs": "run-s build-docs:example build-docs:typedoc gh-pages"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^6.7.3",
