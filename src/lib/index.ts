@@ -1,1 +1,1 @@
-export * from "../modules/tax";
+export * from '../modules/tax'
