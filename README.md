@@ -6,4 +6,4 @@ https://www.npmjs.com/package/tax-lib
 
 ## ドキュメント
 
-https://zakzakst.github.io/make-library-practice/typedoc/
+https://zakzakst.github.io/make-library-practice
