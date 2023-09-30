@@ -15,10 +15,10 @@ export const getTaxDataFromTotal = (
 ): TaxData => {
   // NOTE: 丸め誤差の対応が難しいので一旦ceilで対応
   const price = Math.ceil(sum / (1 + rate))
-  const fee = sum - price
+  const tax = sum - price
   return {
     price,
-    fee,
+    tax,
     sum,
   }
 }
@@ -35,10 +35,10 @@ export const getTaxDataFromPrice = (
 ): TaxData => {
   // NOTE: 丸め誤差の対応が難しいので一旦floorで対応
   const sum = Math.floor(price * (1 + rate))
-  const fee = sum - price
+  const tax = sum - price
   return {
     price,
-    fee,
+    tax,
     sum,
   }
 }

@@ -1,5 +1,5 @@
 export type TaxData = {
   price: number
-  fee: number
+  tax: number
   sum: number
 }
