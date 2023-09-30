@@ -1,3 +1,3 @@
-import { getTaxDataFromPrice } from "./lib/index";
+import { getTaxDataFromPrice } from './lib/index'
 
-console.log(getTaxDataFromPrice(100));
+console.log(getTaxDataFromPrice(100))
