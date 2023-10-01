@@ -24,7 +24,7 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          command: deploy-docs
+          command: yarn deploy-docs
 
 workflows:
   run-test:
