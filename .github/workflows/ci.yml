@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'feature/docs/**'
+
+jobs:
+  deploy-docs:
+    name: ドキュメントデプロイ
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Node.jsのセットアップ
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.2
+
+      - name: インストール実行
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+
+      - name: ドキュメントのデプロイ
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: deploy-docs
