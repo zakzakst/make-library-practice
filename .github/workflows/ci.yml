@@ -1,39 +1,39 @@
-# name: CI
+name: CI
 
-# on:
-#   push:
-#     branches:
-#       - 'feature/docs/**'
+on:
+  push:
+    branches:
+      - 'feature/docs/**'
 
-# jobs:
-#   deploy-docs:
-#     name: ドキュメントデプロイ
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
+jobs:
+  deploy-docs:
+    name: ドキュメントデプロイ
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-#       - name: Node.jsのセットアップ
-#         uses: actions/setup-node@v3
-#         with:
-#           node-version: 18.14.2
+      - name: Node.jsのセットアップ
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.14.2
 
-#       - name: インストール実行
-#         uses: borales/actions-yarn@v4
-#         with:
-#           cmd: install
+      - name: インストール実行
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
 
-#       - name: 利用例のビルド
-#         uses: borales/actions-yarn@v4
-#         with:
-#           cmd: build-docs:example
+      - name: 利用例のビルド
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build-docs:example
 
-#       - name: typedocのビルド
-#         uses: borales/actions-yarn@v4
-#         with:
-#           cmd: build-docs:typedoc
+      - name: typedocのビルド
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build-docs:typedoc
 
-#       - name: ドキュメントのデプロイ
-#         uses: peaceiris/actions-gh-pages@v3
-#         with:
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
-#           publish_dir: ./docs
+      - name: ドキュメントのデプロイ
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs

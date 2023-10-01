@@ -15,22 +15,24 @@ jobs:
       - run:
           command: yarn test
 
-  deploy-docs:
-    description: ドキュメントデプロイ
-    docker:
-      - image: cimg/node:18.14.2
-    steps:
-      - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-      # - add_ssh_keys:
-      #     fingerprints:
-      #       - 'xxxxx'
-      - run:
-          command: |
-            git config --global user.name 'Circle CI'
-            git config --global user.email '<>'
-            yarn deploy-docs
+  # NOTE: CircleCIで上手くいかなかった
+  # https://github.com/zakzakst/make-library-practice/pull/29
+  # deploy-docs:
+  #   description: ドキュメントデプロイ
+  #   docker:
+  #     - image: cimg/node:18.14.2
+  #   steps:
+  #     - checkout
+  #     - node/install-packages:
+  #         pkg-manager: yarn
+  #     - add_ssh_keys:
+  #         fingerprints:
+  #           - 'xxxxx'
+  #     - run:
+  #         command: |
+  #           git config --global user.name 'Circle CI'
+  #           git config --global user.email '<>'
+  #           yarn deploy-docs
 
 workflows:
   run-test:
@@ -38,9 +40,9 @@ workflows:
       # テスト実行
       - test
 
-      # ドキュメントデプロイ
-      - deploy-docs:
-          filters:
-            branches:
-              only:
-                - /feature\/docs\/.*/
+      # # ドキュメントデプロイ
+      # - deploy-docs:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - /feature\/docs\/.*/
