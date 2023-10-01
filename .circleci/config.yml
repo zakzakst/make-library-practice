@@ -23,6 +23,9 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
+      - add_ssh_keys:
+          fingerprints:
+            - '31:fc:90:6d:c8:4f:24:44:2c:1b:c9:8a:bb:bc:53:b0'
       - run:
           command: |
             git config --global user.name 'Circle CI'
