@@ -24,7 +24,10 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          command: yarn deploy-docs
+          command: |
+            git config --global user.name 'Circle CI'
+            git config --global user.email '<>'
+            yarn deploy-docs
 
 workflows:
   run-test:
