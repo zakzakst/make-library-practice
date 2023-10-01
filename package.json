@@ -22,7 +22,7 @@
     "preview": "vite preview",
     "prepare": "husky install",
     "test": "vitest",
-    "lint": "run-s lint:init lint:eslint lint:prettier",
+    "lint": "run-s lint:eslint lint:prettier",
     "lint:eslint": "eslint --ext .js,.ts",
     "lint:prettier": "prettier --check './src/**/*.{js,ts}'",
     "fix": "run-s fix:eslint fix:prettier",
