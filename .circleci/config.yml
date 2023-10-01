@@ -4,7 +4,8 @@ orbs:
   node: circleci/node@4.1
 
 jobs:
-  build-and-test:
+  test:
+    description: テスト実行
     docker:
       - image: cimg/node:18.14.2
     steps:
@@ -12,10 +13,28 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
-          name: Run tests
           command: yarn test
+
+  deploy-docs:
+    description: ドキュメントデプロイ
+    docker:
+      - image: cimg/node:18.14.2
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          command: deploy-docs
 
 workflows:
   run-test:
     jobs:
-      - build-and-test
+      # テスト実行
+      - test
+
+      # ドキュメントデプロイ
+      - deploy-docs:
+          filters:
+            branches:
+              only:
+                - /feature\/docs\/.*/
